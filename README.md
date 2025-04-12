@@ -28,13 +28,12 @@ git push origin main
 > ✅ **Vista previa del  proyecto**
 ![N|Solid](https://raw.githubusercontent.com/RicardoMiguelR/EjercicioFetchApi/refs/heads/main/assets/images/capturaProductos.webp)
 
->## 🚀 Sitio Web
-
+> ## 🚀 Sitio Web
 👉 [Ver proyecto en vivo](https://ricardomiguelr.github.io/CH53_ListaCompras/)
 
 ---
 
-###🙌 Créditos
+### 🙌 Créditos
 Realizado por @RicardoMiguelR
 Proyecto de práctica - Generation México CH53
 
