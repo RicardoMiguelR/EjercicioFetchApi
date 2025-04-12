@@ -11,11 +11,38 @@
     />
     <title>Productos</title>
   </head>
-  <body style="background: rgba(88, 10, 10, 0.712);">
+  <body style="background: rgba(88, 10, 10, 0.712)">
     <div class="container">
       <div class="row" id="cards-container">
-        <h1 style="color: rgba(245, 245, 245, 0.918);">Productos</h1>
-        <main class="row" id="cards-container"></main>
+        <h1 style="color: rgba(245, 245, 245, 0.918)">PRODUCTS</h1>
+        <main class="row" id="cards-container">
+          <div class="dropdown">
+            <!-- Example split danger button -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-danger">Categories</button>
+              <button
+                type="button"
+                class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" id="ulMenu">
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" onclick="getData('');">ALL</a>
+                </li>
+              </ul>
+            </div>
+            <!--btn group-->
+          </div>
+          <hr />
+          <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-md"
+            id="mainProds"
+          ></div>
+        </main>
       </div>
     </div>
 

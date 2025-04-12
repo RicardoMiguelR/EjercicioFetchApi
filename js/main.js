@@ -1,5 +1,7 @@
 const main = document.getElementsByTagName("main").item(0);
 const urlMain = "https://fakestoreapi.com/products/";
+const ulMenu = document.getElementById("ulMenu");
+let mainProds = document.getElementById("mainProds");
 
 // const fetchingData = () => {
 //   return new Promise((resolve, reject) => {
@@ -29,14 +31,46 @@ const urlMain = "https://fakestoreapi.com/products/";
 // }; // Con funcion async/await
 // fetchingUrl();
 
-const getData = () => {
+const getData = (cat = "") => {
   const options = { method: "GET" };
-  fetch(urlMain, options)
+  fetch(urlMain + cat, options)
+    .then(async (response) => {
+      if (!response.ok) new error("Data is empty");
+      const readText = await response.text();
+      if (!readText) new error("Not data");
+      const data = JSON.parse(readText);
+      createCards(data);
+    })
+    .catch((error) => {
+      console.error("catch", error);
+      main.insertAdjacentHTML(
+        "beforeend",
+        `
+        <div class="alert alert-danger" role="alert">
+          ${error.message}
+        </div>
+      `
+      );
+    });
+}; // getData
+getData();
+
+const getcategories = () => {
+  const options = { method: "GET" };
+  fetch(urlMain + "categories/", options)
     .then((response) => {
-      console.log(urlMain);
-      console.log(response);
       response.json().then((res) => {
-        createCards(res);
+        res.forEach((cat) => {
+          ulMenu.insertAdjacentHTML(
+            "afterbegin",
+            `
+              <li><a class="dropdown-item" onclick="getData('category/${cat.replace(
+                "'",
+                "%27"
+              )}');">${cat}</a></li>
+            `
+          );
+        });
       });
     })
     .catch((error) => {
@@ -45,20 +79,22 @@ const getData = () => {
         "beforeend",
         `
             <div class="alert alert-danger" role="alert">
-            ${error.message}
+              ${error.message}
             </div>
         `
       );
     });
-}; // getData
-getData();
+}; // getCategories
+getcategories();
+getData("");
 
 const createCards = (productos) => {
+  mainProds.innerHTML = "";
   productos.forEach((prod) => {
     const firstModal = `modalDetails-${prod.id}`;
     const secondModal = `modalAdded-${prod.id}`;
 
-    main.insertAdjacentHTML(
+    mainProds.insertAdjacentHTML(
       "beforeend",
       `
           <div class="col-md mb-4 d-flex justify-content-center">
