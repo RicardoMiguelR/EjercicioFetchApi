@@ -29,7 +29,7 @@ git push origin main
 ![N|Solid](https://raw.githubusercontent.com/RicardoMiguelR/EjercicioFetchApi/refs/heads/main/assets/images/capturaProductos.webp)
 
 > ## 🚀 Sitio Web
-👉 [Ver proyecto en vivo](https://ricardomiguelr.github.io/CH53_ListaCompras/)
+👉 [Ver proyecto en vivo](https://ricardomiguelr.github.io/EjercicioFetchApi/)
 
 ---
 
